@@ -1,0 +1,40 @@
+
+
+
+import nltk
+import string
+import glob
+import os
+import sklearn
+os.chdir("pos")
+poswords = []
+negwords = []
+totalpos = []
+#changes current directory to pos
+
+#takes in positive reviews, separates them into sentences, then words, then stores them into poswords list
+for filename in glob.glob('*.txt'):
+	file = open(filename, 'r')
+	with open(filename) as f:
+		yo = file.readline().split()
+		for word in yo:
+			poswords.append(word.strip(string.punctuation) + " pos")
+
+#same as above, just for negative reviews
+os.chdir("../neg")
+for filename in glob.glob('*.txt'):
+	file = open(filename, 'r')
+	with open(filename) as f:
+		yo = file.readline().split()
+		for word in yo:
+			negwords.append(word.strip(string.punctuation) + " neg")
+
+#selects 3/4 of features/words to be used to training and 1/4 to be used for testing
+
+print negwords[5]
+print poswords[343]
+
+postCutoff = int(math.floor(len(poswords)*3/4))
+negCutoff = int(math.floor(len(negwords)*3/4))
+train = poswords[:posCutoff] + negwords[:negCutoff]
+test = poswords[posCutoff:] + negwords[neg[Cutoff:]
