@@ -1,84 +1,74 @@
-
-categories = ['alt.atheism', 'soc.religion.christian', 'comp.graphics', 'sci.med']
-
-import glob
-
-file_list = [][]
-
-for filename in glob.glob('*.txt'):
-
-#importing the data set; remember, always in double array
-from sklearn.datasets import fetch_20newsgroups
-twenty_train = fetch_20newsgroups (subset= 'train', categories = categories, shuffle = True, random_state = 42)
-
-#including count vectorizer, which can build a dictionary of features and transform documents to feature vectors
-from sklearn.feature_extraction.text import CountVectorizer
-
-#importing term frequency, to get more accurate analysis
-from sklearn.feature_extraction.text import TfidfTransformer
-
-#THE NAIVE BAYES ALGORITM. FINALLY
 from sklearn.naive_bayes import MultinomialNB
-
-#importing the pipeline class, so the classifier will be easier to work with/crossvalidate
-from sklearn.pipeline import Pipeline
-
-#to judge the accuracy of the classifier, import numpy
-import numpy as np
-
-#let's try the same thing but with the SVM instead of naive Bayes
-from sklearn.linear_model import SGDClassifier
-
-#possible to give more details on the performance of classifier
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import CountVectorizer
 from sklearn import metrics
+from operator import itemgetter
+from sklearn.metrics import classification_report
+import numpy as np
+import csv
+import os
+import glob
+import string
+from random import shuffle
+import itertools
 
-#printing the first "entry" in the data, using splits and whatever else needed
-#print("/n".join(twenty_train.data[0].split("/n")[:3]))
-
-#bag of words approach: assign int id to each word occuring in document. for each document i, count occurences of word w and store it in x[i, j] as the value of feature j. j is index of word w in teh dictionary (remember, dictionary is like an array)
-#in bag of words, n_features is number of distinct words in corpus, something that'll probably be more than 10000. to store this as num array, it'll take 4GB in ram. fortunately, most values in X will be 0. use sparse datasets.
+labels = ['0', '1']
+words = []
+label_names = []
+os.chdir('pos')
+file_names = []
+files= []
 
 count_vect = CountVectorizer()
 
-#X_train_counts is the word vector created by using CountVectorizer on the data. shape is just giving the width and height. CountVectorizer has built a dictionary of feature indices as well.
-X_train_counts = count_vect.fit_transform(twenty_train.data)
-#X_train_counts is a sparse vector with all of the words found in dictionary appearing on teh vector if they appear in the training documents (in the journals)
+for filename in glob.glob('*.txt'):
+	file = open(filename, 'r')
+	files.append(file.read())
+	file_names.append("/pos/" + filename)
+	with open(filename) as f:	
+		yo = file.readline().split()
+		for word in yo: 
+			words.append(word.strip(string.punctuation))
 
-# in below code, we are fitting our estimater to data and transforming our count-matrix to a tf-idf representation (remember, tfidf is "Term Frequency times Inverse Document Frequency". we now have a matrix full of term frequency instead of word occurence
+pos_dict = []
 
+for x in words:
+	if x not in pos_dict:
+		pos_dict.append(x)
+
+words = []
+os.chdir('../neg')
+for filename in glob.glob('*.txt'):
+	file = open(filename, 'r')	
+	files.append(file.read())
+	file_names.append("/neg/" + filename)
+	with open(filename) as f:
+		yo = file.readline().split()
+		for word in yo: 
+			words.append(word.strip(string.punctuation))
+		files.extend(yo)
+neg_dict = []
+for x in words:
+	if x not in neg_dict:
+		neg_dict.append(x)
+
+os.chdir('../')
+
+sparse_matrix = count_vect.fit_transform(files)
 tfidf_transformer = TfidfTransformer()
-X_train_tfidf = tfidf_transformer.fit_transform(X_train_counts)
-#X_train_tfidf is just the term frequency version of X_train_counts. still is sparse matrix format 
+train_tfidf = tfidf_transformer.fit_transform(sparse_matrix)
 
-#setting classifier to a variable
-clf = MultinomialNB().fit(X_train_tfidf, twenty_train.target)
+target = ['pos'] * 1000
+target.extend(['neg']*1000)
+classifier = MultinomialNB().fit(train_tfidf, target)
 
-#to train the classifier, we need to use feature extracting chain that we just did (with transform, fit, etc. this time, though, instead of fit_transform, we use transform, since they have already been fit to the training set
+test = ['good', 'bad', 'perfect', 'immature', 'hate', 'surprise']
+test_counts = count_vect.transform(test)
+test_tfidf = tfidf_transformer.transform(test_counts)
 
-docs_new = ['Satan is awesome', 'Scalp biology AIDS doctor respirator', 'I do not know']
-X_new_counts = count_vect.transform(docs_new)
-X_new_tfidf = tfidf_transformer.transform(X_new_counts)
-predicted = clf.predict(X_new_tfidf)
-#in above code, we are creating a new file to test our classifier on. first, we must make a vector graph using count_vect transform. then, we must transform that vector graph into a term frequency visualization, which is what tfidf_transformer.transform is for. that, we simply do the predict method of the clf to test
-
-for doc, category in zip(docs_new, predicted):
-	print('%r => %s' % (doc, twenty_train.target_names[category]))
-
-#kind of like black box; combines all the transforms into one pipeline so you only need to call it once instead of calling them each individually. 
-
-text_clf = Pipeline([('vect', CountVectorizer()), ('tfidf', TfidfTransformer()), ('clf', MultinomialNB()),])
-
-#the names vect, tfidf, and clf are arbitray. but just know that we can combine them all using pipeline
-
-text_clf = text_clf.fit(twenty_train.data, twenty_train.target)
-
-#evaluating accuracy
-twenty_test = fetch_20newsgroups(subset='test', categories=categories, shuffle=True, random_state=42)
-docs_test = twenty_test.data
-predicted = text_clf.predict(docs_test)
-
-#printing the total accuracy (which is about 83%)
-print np.mean(predicted == twenty_test.target)
-
-#printing a more detailed analysis on classifier performance
-print(metrics.classification_report(twenty_test.target, predicted, target_names=twenty_test.target_names))
+predicted = classifier.predict(test_tfidf)
+x = 0
+for doc, category in zip (test, predicted):
+	print ('%r => %s' % (doc, predicted[x]))
+	x = x +1
