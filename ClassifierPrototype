@@ -3,6 +3,7 @@ from sklearn.feature_extraction import DictVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn import metrics
+from sklearn.linear_model import SGDClassifier
 from operator import itemgetter
 from sklearn.metrics import classification_report
 import numpy as np
@@ -12,58 +13,55 @@ import glob
 import string
 from random import shuffle
 import itertools
+import nltk 
 
-labels = ['0', '1']
-words = []
-label_names = []
-os.chdir('pos')
-file_names = []
+os.chdir('books_sentiment')
 files= []
 
 count_vect = CountVectorizer()
 
-for filename in glob.glob('*.txt'):
-	file = open(filename, 'r')
-	files.append(file.read())
-	file_names.append("/pos/" + filename)
-	with open(filename) as f:	
-		yo = file.readline().split()
-		for word in yo: 
-			words.append(word.strip(string.punctuation))
+with open('positive.review', 'r') as f:
+	files = f.readlines()
 
-pos_dict = []
+poswords = []
+negwords = []
 
-for x in words:
-	if x not in pos_dict:
-		pos_dict.append(x)
+for review in files:
+	review = review.translate(None, ':')
+	review = review.translate(None, '01234567')
+	review = review.split(' ')
+	poswords.extend(review)
 
-words = []
-os.chdir('../neg')
-for filename in glob.glob('*.txt'):
-	file = open(filename, 'r')	
-	files.append(file.read())
-	file_names.append("/neg/" + filename)
-	with open(filename) as f:
-		yo = file.readline().split()
-		for word in yo: 
-			words.append(word.strip(string.punctuation))
-		files.extend(yo)
-neg_dict = []
-for x in words:
-	if x not in neg_dict:
-		neg_dict.append(x)
+with open('negative.review', 'r') as f:
+	files = f.readlines()
+
+print 'Currently building our vocabulary'
+
+for review in files:
+	review = review.translate(None, ':')
+	review = review.translate(None, '01234')
+	review = review.split(' ')
+	negwords.extend(review)
+
+reviews = []
+reviews.extend(negwords)
+reviews.extend(poswords)
 
 os.chdir('../')
 
-sparse_matrix = count_vect.fit_transform(files)
+print 'Currently making our matrix'
+
+sparse_matrix = count_vect.fit_transform(reviews)
 tfidf_transformer = TfidfTransformer()
 train_tfidf = tfidf_transformer.fit_transform(sparse_matrix)
 
-target = ['pos'] * 1000
-target.extend(['neg']*1000)
+target = ['neg'] * len(negwords)
+target.extend(['pos'] * len(poswords))
 classifier = MultinomialNB().fit(train_tfidf, target)
 
-test = ['good', 'bad', 'perfect', 'immature', 'hate', 'surprise']
+print 'Currently testing out test input'
+
+test = ['poor plot', 'amazing action packed edge of my seat cool special effects','cliche, overused, unoriginal', 'perfect, amazing, innovative, nothing like it', 'immature stupid high school vince vaughan', 'hate stupid ugly annoying hate', 'surprise unexpected did not see it coming, twist, off guard']
 test_counts = count_vect.transform(test)
 test_tfidf = tfidf_transformer.transform(test_counts)
 
@@ -72,3 +70,31 @@ x = 0
 for doc, category in zip (test, predicted):
 	print ('%r => %s' % (doc, predicted[x]))
 	x = x +1
+
+test = []
+
+os.chdir('books_sentiment')
+
+print 'Currently loading test data'
+
+with open('unlabeled.review', 'r') as f:
+	test = f.readlines()
+
+print 'loading training data'
+
+positive = '#label#:positive'
+negative = '#label#:negative'
+answers = []
+
+for x in test:
+	if positive in x:
+		answers.append('pos')
+	if negative in x:
+		answers.append('neg')
+
+test_counts = count_vect.transform(test)
+test_tfidf = tfidf_transformer.transform(test_counts)
+
+predicted = classifier.predict(test_tfidf)
+
+print np.mean(predicted == answers)
