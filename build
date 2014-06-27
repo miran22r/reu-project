@@ -1,0 +1,42 @@
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn import metrics
+from sklearn.pipeline import Pipeline
+from sklearn.linear_model import SGDClassifier
+import numpy as np
+import csv
+import os
+import glob
+import string
+from random import shuffle
+import itertools
+import nltk 
+import sys
+
+class build:
+
+	target = []
+	answers = []
+	guesses = []
+
+	def __init__():
+		classifier = Pipeline([('vect', CountVectorizer()), 
+					('transform', TfidfTransformer()),
+					('clf', MultinomialNB()),])
+
+	def fit(classifier, reviews, target):
+		classifier = classifier.fit(reviews, target)
+
+	def build_answers(sent1, sent2, dictionary1, dictionary2):
+		target = ([sent1] * len(dictionary1))
+		target = target.extend([sent2] * len(dictionary2))
+		return target
+	
+	def add_answers(sentiment1, sentiment2):
+		for x in test:
+			if sentiment1 in x:
+				guesses.append(sentiment1)
+			if sentiment2 in x:
+				guesses.append(sentiment2)
