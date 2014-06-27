@@ -1,0 +1,46 @@
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.feature_extraction import DictVectorizer
+from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn import metrics
+from sklearn.linear_model import SGDClassifier
+from operator import itemgetter
+from sklearn.metrics import classification_report
+import numpy as np
+import csv
+import os
+import glob
+import string
+from random import shuffle
+import itertools
+import nltk 
+import sys
+
+class load_data:
+
+	reviews = []
+	test = []
+	sent1_words = []
+	sent2_words = []
+
+	def load_files(inputFile, boolean):
+		print 'Currently building our vocabulary'
+		with open(inputFile, 'r') as f:
+			files = f.readlines()
+		for review in files:
+			review = review.translate(None, ':')
+			review = review.translate(None, '01234567')
+			review = review.translate('#')
+			review = review.split(' ')
+			if boolean == True:
+				sent1_words.extend(review)
+			if boolean == False:
+				sent2_words.extend(review)
+
+	def load_test(fileName):
+		with open(fileName, 'r') as f:
+			test = f.readlines()
+
+	def build_train():
+		reviews = reviews.extend(sent1_words)
+		reviews = reviews.extend(sent2_words)
