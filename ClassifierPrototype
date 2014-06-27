@@ -1,11 +1,12 @@
 from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction import DictVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import HashingVectorizer
 from sklearn import metrics
 from sklearn.linear_model import SGDClassifier
 from operator import itemgetter
 from sklearn.metrics import classification_report
+from sklearn.pipeline import Pipeline
 import numpy as np
 import csv
 import os
@@ -15,7 +16,6 @@ from random import shuffle
 import itertools
 import nltk 
 
-os.chdir('books_sentiment')
 files= []
 
 count_vect = CountVectorizer()
@@ -47,8 +47,6 @@ reviews = []
 reviews.extend(negwords)
 reviews.extend(poswords)
 
-os.chdir('../')
-
 print 'Currently making our matrix'
 
 sparse_matrix = count_vect.fit_transform(reviews)
@@ -57,23 +55,23 @@ train_tfidf = tfidf_transformer.fit_transform(sparse_matrix)
 
 target = ['neg'] * len(negwords)
 target.extend(['pos'] * len(poswords))
-classifier = MultinomialNB().fit(train_tfidf, target)
+#classifier = MultinomialNB().fit(train_tfidf, target)
+classifier = Pipeline([('vect', CountVectorizer()),
+			('tfidf', TfidfTransformer()), 
+			('clf', MultinomialNB()),])
 
 print 'Currently testing out test input'
 
 test = ['poor plot', 'amazing action packed edge of my seat cool special effects','cliche, overused, unoriginal', 'perfect, amazing, innovative, nothing like it', 'immature stupid high school vince vaughan', 'hate stupid ugly annoying hate', 'surprise unexpected did not see it coming, twist, off guard']
-test_counts = count_vect.transform(test)
-test_tfidf = tfidf_transformer.transform(test_counts)
 
-predicted = classifier.predict(test_tfidf)
+classifier = classifier.fit(reviews, target)
+predicted = classifier.predict(test)
 x = 0
 for doc, category in zip (test, predicted):
 	print ('%r => %s' % (doc, predicted[x]))
 	x = x +1
 
 test = []
-
-os.chdir('books_sentiment')
 
 print 'Currently loading test data'
 
@@ -95,6 +93,6 @@ for x in test:
 test_counts = count_vect.transform(test)
 test_tfidf = tfidf_transformer.transform(test_counts)
 
-predicted = classifier.predict(test_tfidf)
+predicted = classifier.predict(test)
 
 print np.mean(predicted == answers)
