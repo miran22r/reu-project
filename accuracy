@@ -1,6 +1,8 @@
 import numpy as np
 
 class accuracy:
-		
-	def check_accuracy(predicted, answers):
-		return np.mean(predicted == answers)
+
+    def __init__():
+
+        def check_accuracy(predicted, answers):
+            return np.mean(predicted == answers)
