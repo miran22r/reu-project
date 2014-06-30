@@ -6,12 +6,27 @@ import string
 
 class load_data:
 
+	"""initialize all variables in class
+		
+	Attributes:
+		reviews: the raw data given for the test
+		test: processed data
+		sent1_words: dictionary of words found in documents that are category of sent1
+		sent2_words: dictionary of words found in docs that are category of sent2
+	"""
 	def __init__(self):
 		self.reviews = []
 		self.test = []
 		self.sent1_words = []
-		self.sent2_words = []
+		self.sent2_words = []	
 
+	"""loading raw text, forming lists of all words found
+		
+	Attributes:
+		inputFile: file containing raw text
+		test: processed data
+		boolean: discerning between text containing sent1 and docs containing sent2
+	"""
 	def load_files(self, inputFile, boolean):
 		print 'Currently building our vocabulary'
 		with open(inputFile, mode='r',buffering=-1) as f:
@@ -19,26 +34,35 @@ class load_data:
 		for review in files:
 			review = review.translate(None, ':')
 			review = review.translate(None, '01234567')
-		#	review = review.translate(None,'#')
+			review = review.translate(None,'#')
 			review = review.split(' ')
 			if boolean == True:
 				self.sent1_words.extend(review)
 			if boolean == False:
 				self.sent2_words.extend(review)
 
+
+	"""loading raw text used for test
+		
+	Attributes:
+		testFile: file containing raw text
+	"""
 	def load_test(self, testFile):
-		with open(testFile, mode='r',buffering=-1) as f:
+		with open(testFile, mode='r') as f:
 			files = f.readlines()
 		for review in files:
 			review = review.translate(None, ':')
 			review = review.translate(None, '01234567')
-		#	review = review.translate(None,'#')
-			review = review.split(' ')
-			test = self.test
-			test.extend(review)
-		len(test)	
-		return test
+			review = review.translate(None,'#')
+			self.test.append(review)
+		print len(self.test)
+		print self.test[435]
+		return self.test
 	# load
+	
+	"""
+	transforming raw text into an list of every review	
+	"""	
 	def build_train(self):
 		rev = self.reviews
 		rev.extend(self.sent1_words)
