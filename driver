@@ -3,6 +3,7 @@ import numpy as np
 import csv
 import os
 import sys
+import string
 from accuracy import *
 from build import *
 from classify import *
@@ -12,40 +13,54 @@ from load_data import *
 fileName1 = ""
 fileName2 = ""
 testFile = ""
-sentiment1 = ""
-sentiment2 = ""
+sentiment1 = '#labal#positive'
+sentiment2 = '#labal#negative'
 
 print sys.argv[0]
 print sys.argv[1]	
 print sys.argv[2]
-print sys.argv[3]
-print sys.argv[4]
-print sys.argv[5]
+#print sys.argv[3]
+#print sys.argv[5]
 	
 # get input arguements	
-if len(sys.argv) < 5:
+if len(sys.argv) < 3:
 	print 'Sorry, but you input the wrong amount of arguments.'
 	sys.exit()
 else:
 	fileName1 = sys.argv[1]
 	fileName2 = sys.argv[2]
 	testFile = sys.argv[3]	
-	sentiment1 = sys.argv[4]
-	sentiment2 = sys.argv[5]
+#	sentiment1 = sys.argv[4]
+#	sentiment2 = sys.argv[5]
 
 # build()
 loader = load_data()
-loader.load_files(fileName1, True)
-loader.reviews = []
-loader.load_files(fileName2, False)
-loader.build_train()
-builder = builder()
-classify = classify()
-builder.build_answers(sentiment1, sentiment2, loader.sent1_words(), loader.sent2_words())
-builder.fit(classify.classifier(), loader.reviews(), builder.answers())	
-loader.load_files(testFile)
-builder.add_answers(sentiment1, sentiment2)
+loader.load_files(str(fileName1), True)
 
-classify.classify(loader.test())
+loader.load_files(str(fileName2), False)
+loader.build_train()
+builder = build()
+classify = classify()
+
+targ = builder.build_answers(sentiment1, sentiment2, loader.sent1_words, loader.sent2_words)
+
+print "target"
+print len(targ)
+
+print "reviews"
+print len(loader.reviews)
+
+builder.fit(classify.classifier, loader.reviews, targ)
+
+test = loader.load_test(testFile)
+
+print "test"
+print len(test)
+builder.add_answers(test, sentiment1, sentiment2)
+
+classify.classify(loader.test)
+
 accur = accuracy()
-accur.check_accuracy(classify.predicted(), builder.guesses())
+print "Predicted"
+print classify.predicted
+print accur.check_accuracy(classify.predicted, builder.answers)
