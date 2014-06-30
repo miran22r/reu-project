@@ -13,12 +13,9 @@ from load_data import *
 fileName1 = ""
 fileName2 = ""
 testFile = ""
-sentiment1 = '#labal#positive'
-sentiment2 = '#labal#negative'
+sentiment1 = 'labelpositive\n'
+sentiment2 = 'labelnegative\n'
 
-print sys.argv[0]
-print sys.argv[1]	
-print sys.argv[2]
 #print sys.argv[3]
 #print sys.argv[5]
 	
@@ -44,23 +41,13 @@ classify = classify()
 
 targ = builder.build_answers(sentiment1, sentiment2, loader.sent1_words, loader.sent2_words)
 
-print "target"
-print len(targ)
-
-print "reviews"
-print len(loader.reviews)
-
-builder.fit(classify.classifier, loader.reviews, targ)
+classify.fit(loader.reviews, targ)
 
 test = loader.load_test(testFile)
 
-print "test"
-print len(test)
 builder.add_answers(test, sentiment1, sentiment2)
 
-classify.classify(loader.test)
+classify.classify(test)
 
 accur = accuracy()
-print "Predicted"
-print classify.predicted
 print accur.check_accuracy(classify.predicted, builder.answers)
