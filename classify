@@ -1,4 +1,3 @@
-import string
 import sys
 from sklearn.pipeline import Pipeline
 from sklearn.feature_extraction.text import CountVectorizer
@@ -7,10 +6,18 @@ from sklearn.naive_bayes import MultinomialNB
 
 class classify:
 	
+	
 	classifier = Pipeline([('vect', CountVectorizer()), 
 				('tfidf', TfidfTransformer()), 
 				('clf', MultinomialNB()),])
 	predicted = []
 
+
+	def __init__():
+
+
 	def classify(test):
 		predicted = classifier.predict(test)
+
+	def predicted():
+		return predicted
