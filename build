@@ -17,35 +17,37 @@ from sklearn.linear_model import SGDClassifier
 
 class build:
 
-	# target = []
 	answers = []
-	#guesses = []
 
 	def __init__(self):
-		classifier = Pipeline([('vect', CountVectorizer()), 
-					('transform', TfidfTransformer()),
-					('clf', MultinomialNB()),])
 		self.target = []
 		self.answers = []
 
-	def fit(self, classifier, reviews, target):
-		classifier = classifier.fit(reviews, target)
+	"""builds an separate array of labels for the classifier to train on; take len of sent1 words then make an array of same size with each value of sentiment1. extend that array by len of sent2 words, each index added has value of sentiment2
 
+	Attributes: 
+		sent1 = first sentiment/category 
+		sent2 = second sentiment/category
+		dictionary1: vocabulary of sentiment1
+		dictionary2: vocabulary of sentiment2
+	"""
 	def build_answers(self, sent1, sent2, dictionary1, dictionary2):
 		target = self.target
 		target = ([sent1] * len(dictionary1))
 		target.extend([sent2] * len(dictionary2))
 		return target
+
 	
+	"""adds answers for the test; compare these labels to the ones provided by classifier. look for label in text. if found, append respective label to append
+
+	Attributes: 
+		test = the test that we use on the classifier
+		sentiment1 = first label
+		sentiment2 = second label
+	"""
 	def add_answers(self, test, sentiment1, sentiment2):
 		for x in test:	
-			print "the val of x"
-			print x
 			if sentiment1 in x:
-				print "Sentiment1"
-				print sentiment1
 				self.answers.append(sentiment1)
 			if sentiment2 in x:
-				print sentiment2
 				self.answers.append(sentiment2)
-		print len(self.answers)
