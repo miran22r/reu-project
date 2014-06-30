@@ -16,8 +16,8 @@ class classify:
 	def __init__():
 
 
-	def classify(test):
-		predicted = classifier.predict(test)
+                def classify(test):
+                        predicted = classifier.predict(test)
 
-	def predicted():
-		return predicted
+                def predicted():
+                        return predicted
