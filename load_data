@@ -1,47 +1,45 @@
 import numpy as np
 import csv
 import os
+import string
 
 
 class load_data:
 
-	reviews = []
-	test = []
-	sent1_words = []
-	sent2_words = []
+	def __init__(self):
+		self.reviews = []
+		self.test = []
+		self.sent1_words = []
+		self.sent2_words = []
 
-	def load_files(inputFile, boolean):
+	def load_files(self, inputFile, boolean):
 		print 'Currently building our vocabulary'
-		with open(inputFile, 'r') as f:
+		with open(inputFile, mode='r',buffering=-1) as f:
 			files = f.readlines()
 		for review in files:
 			review = review.translate(None, ':')
 			review = review.translate(None, '01234567')
-			review = review.translate('#')
+		#	review = review.translate(None,'#')
 			review = review.split(' ')
 			if boolean == True:
-				sent1_words.extend(review)
+				self.sent1_words.extend(review)
 			if boolean == False:
-				sent2_words.extend(review)
+				self.sent2_words.extend(review)
 
-	def load_test(fileName):
-		with open(fileName, 'r') as f:
-			test = f.readlines()
-# load
-	def build_train():
-		reviews = reviews.extend(sent1_words)
-		reviews = reviews.extend(sent2_words)
-	
-	# get sent1_words
-	def sent1_words():
-		return sent1_words
-
-	# get sent2_words
-	def sent2_words():
-		return sent2_words
-
-	def reviews():
-		return reviews
-
-	def test():
+	def load_test(self, testFile):
+		with open(testFile, mode='r',buffering=-1) as f:
+			files = f.readlines()
+		for review in files:
+			review = review.translate(None, ':')
+			review = review.translate(None, '01234567')
+		#	review = review.translate(None,'#')
+			review = review.split(' ')
+			test = self.test
+			test.extend(review)
+		len(test)	
 		return test
+	# load
+	def build_train(self):
+		rev = self.reviews
+		rev.extend(self.sent1_words)
+		rev.extend(self.sent2_words)
