@@ -17,32 +17,35 @@ from sklearn.linear_model import SGDClassifier
 
 class build:
 
-	target = []
+	# target = []
 	answers = []
-	guesses = []
+	#guesses = []
 
-	def __init__():
+	def __init__(self):
 		classifier = Pipeline([('vect', CountVectorizer()), 
 					('transform', TfidfTransformer()),
 					('clf', MultinomialNB()),])
+		self.target = []
+		self.answers = []
 
-	def fit(classifier, reviews, target):
+	def fit(self, classifier, reviews, target):
 		classifier = classifier.fit(reviews, target)
 
-	def build_answers(sent1, sent2, dictionary1, dictionary2):
+	def build_answers(self, sent1, sent2, dictionary1, dictionary2):
+		target = self.target
 		target = ([sent1] * len(dictionary1))
-		target = target.extend([sent2] * len(dictionary2))
+		target.extend([sent2] * len(dictionary2))
 		return target
 	
-	def add_answers(sentiment1, sentiment2):
-		for x in test:
+	def add_answers(self, test, sentiment1, sentiment2):
+		for x in test:	
+			print "the val of x"
+			print x
 			if sentiment1 in x:
-				guesses.append(sentiment1)
+				print "Sentiment1"
+				print sentiment1
+				self.answers.append(sentiment1)
 			if sentiment2 in x:
-				guesses.append(sentiment2)
-
-	def answers():
-		return answers
-
-	def guesses():
-		return guesses
+				print sentiment2
+				self.answers.append(sentiment2)
+		print len(self.answers)
