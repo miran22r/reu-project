@@ -1,25 +1,13 @@
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction import DictVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn import metrics
-from sklearn.linear_model import SGDClassifier
-from operator import itemgetter
-from sklearn.metrics import classification_report
 import numpy as np
 import csv
 import os
-import glob
-import string
-from random import shuffle
-import itertools
-import nltk 
 import sys
-import classify
-import load_data
-import accuracy
-import build
+from accuracy import *
+from build import *
+from classify iport *
+from load_data import *
 
+# files
 fileName1 = ""
 fileName2 = ""
 testFile = ""
@@ -32,7 +20,8 @@ print sys.argv[2]
 print sys.argv[3]
 print sys.argv[4]
 print sys.argv[5]
-		
+	
+# get input arguements	
 if len(sys.argv) < 5:
 	print 'Sorry, but you input the wrong amount of arguments.'
 	sys.exit()
@@ -43,14 +32,19 @@ else:
 	sentiment1 = sys.argv[4]
 	sentiment2 = sys.argv[5]
 
-#build()
-load_data.load_files(fileName1, True)
-load_data.reviews = []
-load_data.load_files(fileName2, False)
-load_data.build_train()
-build.build_answers(sentiment1, sentiment2, load_data.sent1_words, load_data.sent2_words)
-build.fit(classify.classifier, load_data.reviews, build.answers)	
-load_data.load_files(testFile)
-build.add_answers(sentiment1, sentiment2)
-classify.classify(load_data.test)
-accuracy.check_accuracy(classify.predicted, build.guesses)
+# build()
+loader = load_data()
+loader.load_files(fileName1, True)
+loader.reviews = []
+loader.load_files(fileName2, False)
+loader.build_train()
+builder = builder()
+classify = classify()
+builder.build_answers(sentiment1, sentiment2, loader.sent1_words(), loader.sent2_words())
+builder.fit(classify.classifier(), loader.reviews(), builder.answers())	
+loader.load_files(testFile)
+builder.add_answers(sentiment1, sentiment2)
+
+classify.classify(loader.test())
+accur = accuracy()
+accur.check_accuracy(classify.predicted(), builder.guesses())
