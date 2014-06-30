@@ -44,5 +44,5 @@ class build:
 	def answers():
 		return answers
 
-	def guesses()
+	def guesses():
 		return guesses
