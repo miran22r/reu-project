@@ -6,12 +6,22 @@ from sklearn.naive_bayes import MultinomialNB
 
 class classify:
 	
-
 	classifier = Pipeline([('vect', CountVectorizer()), 
 				('tfidf', TfidfTransformer()), 
 				('clf', MultinomialNB())])
 	predicted = []
 
+	"""fits the classifier to the data we are using, with the raw text and the list with the correct labels
+	
+	Attributes:
+		reviews: raw text
+		target: correct labels for text
+	"""
+	def fit(self, reviews, target):
+		self.classifier = self.classifier.fit(reviews, target)
+
+	"""classifies the test text, returning a list with all of the guessed labels for each review
+	"""
 	def classify(self, test):
     		self.predicted = self.classifier.predict(test)
-
+		print len(self.predicted)
