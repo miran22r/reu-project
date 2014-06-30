@@ -1,10 +1,11 @@
+
 import numpy as np
 import csv
 import os
 import sys
 from accuracy import *
 from build import *
-from classify iport *
+from classify import *
 from load_data import *
 
 # files
