@@ -1,20 +1,7 @@
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.feature_extraction import DictVectorizer
-from sklearn.feature_extraction.text import TfidfTransformer
-from sklearn.feature_extraction.text import CountVectorizer
-from sklearn import metrics
-from sklearn.linear_model import SGDClassifier
-from operator import itemgetter
-from sklearn.metrics import classification_report
 import numpy as np
 import csv
 import os
-import glob
-import string
-from random import shuffle
-import itertools
-import nltk 
-import sys
+
 
 class load_data:
 
@@ -40,7 +27,21 @@ class load_data:
 	def load_test(fileName):
 		with open(fileName, 'r') as f:
 			test = f.readlines()
-
+# load
 	def build_train():
 		reviews = reviews.extend(sent1_words)
 		reviews = reviews.extend(sent2_words)
+	
+	# get sent1_words
+	def sent1_words():
+		return sent1_words
+
+	# get sent2_words
+	def sent2_words():
+		return sent2_words
+
+	def reviews():
+		return reviews
+
+	def test():
+		return test
