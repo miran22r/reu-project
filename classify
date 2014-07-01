@@ -24,4 +24,3 @@ class classify:
 	"""
 	def classify(self, test):
     		self.predicted = self.classifier.predict(test)
-		print len(self.predicted)
