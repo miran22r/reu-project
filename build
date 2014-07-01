@@ -1,12 +1,3 @@
-import numpy as np
-import csv
-import os
-import glob
-import string
-from random import shuffle
-import itertools
-import nltk 
-import sys
 from sklearn.naive_bayes import MultinomialNB
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.feature_extraction.text import TfidfTransformer
