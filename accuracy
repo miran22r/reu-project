@@ -2,7 +2,5 @@ import numpy as np
 
 class accuracy:
 
-	"""taking array of answers and guesses and comparing them, using mean as accuracy; probably use cross-validation in the future
-	"""
-    def check_accuracy(self, predicted, answers):
-	return np.mean(predicted == answers)
+	def check_accuracy(self, predicted, answers):
+		return np.mean(predicted == answers)
