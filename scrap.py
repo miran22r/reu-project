@@ -12,8 +12,18 @@ def pageData(url):
     soup = BeautifulSoup(data,["lxml", "xml"])
 
     for link in soup.find_all(class_="json-data", limit=1):
-	print link
-    
+	strLink = str(link)
+	init = strLink.index("value") + 7
+	final = strLink.index("false}}'>") + 7
+	json_data = "[" +strLink[init:final] + "]"
+#	json_data = strLink[init:final]	
+	print json_data
+        data = json.loads(json_data)
+	print data
+#	data['location']
+	print json_data["u'location"]    
+
+
 def main():
     print "Working"
     #url = raw_input("username")
