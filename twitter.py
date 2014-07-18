@@ -17,8 +17,10 @@ class StdOutListener(StreamListener):
 	def on_data(self, data):
 		global fileName
 		decoded = json.loads(data)
+		self.fileName.write(decoded['screen_name'].encode('ascii', 'ignore'))
 		self.fileName.write(decoded['text'].encode('ascii', 'ignore'))
 		self.fileName.write(decoded['created_at'].encode('ascii', 'ignore'))
+		self.fileName.write(decoded['geo'].encode('ascii', 'ignore'))
 		self.fileName.write("\n")
 		return True
 
@@ -30,4 +32,12 @@ if __name__ == '__main__':
 	auth = OAuthHandler(ckey, csecret)
 	auth.set_access_token(atoken, asecret)
 	stream = Stream(auth,l)
-	stream.filter(track=['McDonalds, big mac'])
+
+	#topic filter
+	stream.filter(track=['McDonalds, big mac, cheese, hungry'])
+
+	#location filter
+	stream.filter(locations= '-122.75, 36.8, -121.75, 37.8')
+	
+	#language filter
+	stream.filter(language='en')
