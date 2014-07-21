@@ -1,4 +1,4 @@
-$GooGL
+$GOOGL
 $GOOG
 Google search 
 PageRank
