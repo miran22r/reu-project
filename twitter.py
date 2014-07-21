@@ -18,10 +18,11 @@ class StdOutListener(StreamListener):
 		global fileName
 		decoded = json.loads(data)
 		self.fileName.write("#")
-		self.fileName.write(decoded[u'text'])
 		self.fileName.write(decoded[u'user'][u'screen_name'])
 		self.fileName.write(decoded[u'user'][u'followers_count'])
+		self.fileName.write(decoded[u'user'][u'created_at'])
 		self.fileName.write(decoded[u'user'][u'location'])
+		self.fileName.write(decoded[u'text'])
 		return True
 
 	def on_error(self, status):
