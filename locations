@@ -1,0 +1,9 @@
+here"s the code for locations
+
+stream.filter(locations=[whatever the coordinates are]
+
+Manhattan = -74.2591,40.496,-73.7003,40.9153
+LA = -118.6682,33.7037,-118.1553,34.3373
+Chicago = -87.9403,41.6443,-87.524,42.0231
+Houston = -95.7881,29.5236,-95.0145,30.1107
+DC = -77.119759,38.791645,-76.909393,38.995548
