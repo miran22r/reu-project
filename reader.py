@@ -20,27 +20,25 @@ class reader:
 	def get_negative(self, cols):
 		return cols[3]
 
-	def get_pos(self):
-		return self.pos
+	def get_total_sent(self):
+		return sum(self.pos_words) - sum(self.neg_words)
+	
+	def reset(self):
+		self.pos_words = []
+		self.neg_words = []
 
-	def get_neg(self):
-		return self.neg
- 
 	def get_scores(self, word):
 		self.fileName = open(self.file1)
 		for line in self.fileName:
-			if not line.startswith("#"):
-				cols = self.split_line(line)	
-				words = cols[4].split("#")
-				if word in words:
-					self.pos = self.pos + float(self.get_positive(cols))
-					self.neg = self.neg + float(self.get_negative(cols))
-					self.counter = self.counter +1
+			cols = self.split_line(line)	
+			words = cols[4].split("#")
+			if word in words:
+				self.pos = self.pos + float(self.get_positive(cols))
+				self.neg = self.neg + float(self.get_negative(cols))
+				self.counter = self.counter +1
 		if self.counter is not 0:
-			print word
-			print self.counter
-			print self.pos/self.counter
-			print self.neg/self.counter
+			self.pos_words.append(self.pos/self.counter)
+			self.neg_words.append(self.neg/self.counter)
 			self.counter = 0
 			self.pos = 0
 			self.neg = 0
