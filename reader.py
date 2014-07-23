@@ -10,15 +10,11 @@ class reader:
 		self.pos_words = []
 		self.neg_words = []
 
-	def split_line(self, line):
-		cols = line.split("\t")
-		return cols
-
 	def get_positive(self, cols):
-		return cols[2]
+		return cols[0]
  
 	def get_negative(self, cols):
-		return cols[3]
+		return cols[1]
 
 	def get_total_sent(self):
 		return sum(self.pos_words) - sum(self.neg_words)
@@ -30,11 +26,10 @@ class reader:
 	def get_scores(self, word):
 		self.fileName = open(self.file1)
 		for line in self.fileName:
-			cols = self.split_line(line)	
-			words = cols[4].split("#")
-			if word in words:
-				self.pos = self.pos + float(self.get_positive(cols))
-				self.neg = self.neg + float(self.get_negative(cols))
+			line = line.split()
+			if word in line:
+				self.pos = self.pos + float(self.get_positive(line))
+				self.neg = self.neg + float(self.get_negative(line))
 				self.counter = self.counter +1
 		if self.counter is not 0:
 			self.pos_words.append(self.pos/self.counter)
