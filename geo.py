@@ -68,32 +68,41 @@ class Geo:
 
 	def coordinates(self,place):
     	    g = geocoders.GoogleV3()
-            place, (lat, lng) = g.geocode(place)
-            print "%s:, %.5f:, %.5f" % (place, lat, lng)
-	    print place
-            loc = place.split(",") 
-	    print loc
-	    if(" USA" == str(loc.pop())):
-		print "in the us"
-	        stateZip = str(loc.pop())
-                state = stateZip[1:3]
-                print stateZip
-                if(self.states.has_key(state)):
-            	    print "state found"
-                else:
-                    print "state not found"
-                city = loc.pop()
-                print city[0:len(city)]
-                return city, state
-    	    else:
-		print "not in the us"
-       	        return "None", "None"
+	    try:
+                    place, (lat, lng) = g.geocode(place)
+           	    print "%s:, %.5f:, %.5f" % (place, lat, lng)
+	   	    print place
+                    loc = place.split(",") 
+	            print loc
+	            if(" USA" == str(loc.pop())):
+		        print "in the us"
+	                stateZip = str(loc.pop())
+                        state = stateZip[1:3]
+                        print stateZip
+                  	if(self.states.has_key(state)):
+            	            print "state found"
+			    city = loc.pop()
+			    if len(city) > 1:
+				print city[0:len(city)]
+				print city+ ", " + state
+				return city, state
+                    	else:
+                            print "state not found"
+    	            else:
+		        print "not in the us"
+			city = "None"
+			state = "None"
+       	                return city, state
+            except:
+		print "City not Found" 
+
 
 def main():
    g = Geo()
    read = raw_input("Put in a location")
-   something  = g.coordinates(read)
-  
+   
+   city, state  = g.coordinates(read)
+   
 
 if __name__=="__main__": 
    main()
