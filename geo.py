@@ -95,6 +95,9 @@ class Geo:
        	                return city, state
             except:
 		print "City not Found" 
+		city = "None"
+		state = "None"
+		return city, state
 
 
 def main():
