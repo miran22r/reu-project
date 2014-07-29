@@ -1,0 +1,504 @@
+***sat jul 26 23:55:12 +0000 2014
+nah nigga, this is an error
+0.278205128205
+***sat jul 26 18:13:29 +0000 2014
+nah nigga, this is an error
+0.15
+***sat jul 26 17:59:25 +0000 2014
+St. Louis, MO, USA
+0.15
+***sat jul 26 14:18:31 +0000 2014
+nah nigga, this is an error
+-0.0288461538462
+***sat jul 26 14:12:47 +0000 2014
+St. Louis, MO, USA
+-0.0288461538462
+***sat jul 26 09:20:43 +0000 2014
+nah nigga, this is an error
+0.0277777777778
+***sat jul 26 09:19:15 +0000 2014
+nah nigga, this is an error
+0.0277777777778
+***sat jul 26 09:07:07 +0000 2014
+nah nigga, this is an error
+0.0114489489489
+***sat jul 26 08:50:07 +0000 2014
+Kuwait
+0.453571428571
+***sat jul 26 04:26:00 +0000 2014
+nah nigga, this is an error
+-0.114583333333
+***sat jul 26 04:21:33 +0000 2014
+nah nigga, this is an error
+-0.114583333333
+***sat jul 26 00:55:45 +0000 2014
+nah nigga, this is an error
+0.0494505494505
+***sat jul 26 00:53:12 +0000 2014
+nah nigga, this is an error
+0.0494505494505
+***fri jul 25 23:30:44 +0000 2014
+Stock Market Road, Nicholls, GA 31554, USA
+0.025
+***fri jul 25 19:37:54 +0000 2014
+nah nigga, this is an error
+0.352976190476
+***fri jul 25 18:12:22 +0000 2014
+nah nigga, this is an error
+-0.957621635611
+***fri jul 25 18:09:53 +0000 2014
+nah nigga, this is an error
+-0.43203712406
+***fri jul 25 18:07:08 +0000 2014
+nah nigga, this is an error
+0.155787037037
+***fri jul 25 18:05:47 +0000 2014
+nah nigga, this is an error
+0.0114489489489
+***fri jul 25 18:04:26 +0000 2014
+nah nigga, this is an error
+0.0114489489489
+***fri jul 25 17:46:40 +0000 2014
+nah nigga, this is an error
+0.0
+***fri jul 25 17:44:46 +0000 2014
+Warbranch, KY 40874, USA
+0.0625
+***fri jul 25 17:24:28 +0000 2014
+Ashville, PA 16613, USA
+0.0694444444444
+***fri jul 25 17:23:01 +0000 2014
+Ramsey, NJ, USA
+0.025
+***fri jul 25 17:00:04 +0000 2014
+nah nigga, this is an error
+0.0178571428571
+***fri jul 25 16:29:06 +0000 2014
+Kenmore, NY, USA
+0.025
+***fri jul 25 15:59:49 +0000 2014
+nah nigga, this is an error
+-0.303810160428
+***fri jul 25 15:47:42 +0000 2014
+nah nigga, this is an error
+-0.104761904762
+***fri jul 25 15:32:31 +0000 2014
+New York, NY, USA
+0
+***fri jul 25 15:27:50 +0000 2014
+Lincoln Acres, CA 91950, USA
+0.225484006734
+***fri jul 25 15:23:41 +0000 2014
+Midkiff, WV 25506, USA
+0.1875
+***fri jul 25 15:07:08 +0000 2014
+nah nigga, this is an error
+0.375
+***fri jul 25 14:51:35 +0000 2014
+E C Manning Provincial Park, 7500 Crownsnest Hwy, Manning Park, BC V0X 1R0, Canada
+0.0
+***fri jul 25 14:51:14 +0000 2014
+E C Manning Provincial Park, 7500 Crownsnest Hwy, Manning Park, BC V0X 1R0, Canada
+0.181944444444
+***fri jul 25 14:46:48 +0000 2014
+Woods County, OK, USA
+-0.015625
+***fri jul 25 14:44:38 +0000 2014
+Savant Lake, ON P0T, Canada
+-0.0916795665635
+***fri jul 25 14:34:32 +0000 2014
+nah nigga, this is an error
+-0.0749007936508
+***fri jul 25 14:30:29 +0000 2014
+Lopeno, TX 78564, USA
+-0.0252403846154
+***fri jul 25 14:13:00 +0000 2014
+nah nigga, this is an error
+0.25994531784
+***fri jul 25 14:12:07 +0000 2014
+nah nigga, this is an error
+0.561901061901
+***fri jul 25 14:03:36 +0000 2014
+New York, NY, USA
+-0.240350877193
+***fri jul 25 13:51:57 +0000 2014
+Acton, ME, USA
+0.0576923076923
+***fri jul 25 13:48:01 +0000 2014
+Migisi Sahgaigan, ON P0V, Canada
+0.00454545454545
+***fri jul 25 13:26:33 +0000 2014
+Monterrey, Nuevo Leon, Mexico
+-0.0332341269841
+***fri jul 25 13:14:14 +0000 2014
+nah nigga, this is an error
+-0.0332341269841
+***fri jul 25 13:12:05 +0000 2014
+Venezuela
+-0.0332341269841
+***fri jul 25 13:07:26 +0000 2014
+nah nigga, this is an error
+-0.0332341269841
+***fri jul 25 13:06:13 +0000 2014
+New York, NY, USA
+-0.0332341269841
+***fri jul 25 13:05:03 +0000 2014
+Millville, NJ, USA
+-0.0332341269841
+***fri jul 25 13:01:19 +0000 2014
+Global, Midland, TX 79706, USA
+-0.0332341269841
+***fri jul 25 13:00:23 +0000 2014
+New York, NY, USA
+-0.0749007936508
+***fri jul 25 12:48:55 +0000 2014
+Sebec, ME, USA
+0.494101731602
+***fri jul 25 12:48:41 +0000 2014
+Liverpool, Merseyside, UK
+0.275
+***fri jul 25 12:35:31 +0000 2014
+Tampa, FL, USA
+0.527803884712
+***fri jul 25 12:08:32 +0000 2014
+London, UK
+-0.1625
+***fri jul 25 12:07:05 +0000 2014
+nah nigga, this is an error
+0.117424242424
+***fri jul 25 11:51:24 +0000 2014
+Grantsburg, IL 62943, USA
+-0.138888888889
+***fri jul 25 11:49:44 +0000 2014
+Goldfield, IA, USA
+-0.0541795665635
+***fri jul 25 11:44:19 +0000 2014
+Carterville, MO, USA
+-0.0230769230769
+***fri jul 25 11:31:54 +0000 2014
+Camden, DE, USA
+0.525
+***fri jul 25 10:28:10 +0000 2014
+nah nigga, this is an error
+-0.0345238095238
+***fri jul 25 09:52:42 +0000 2014
+Maidstone, Tecumseh, ON N0R, Canada
+0.025
+***fri jul 25 09:22:30 +0000 2014
+Millville, MA, USA
+0.025
+***fri jul 25 04:30:01 +0000 2014
+nah nigga, this is an error
+-0.1
+***fri jul 25 04:10:47 +0000 2014
+nah nigga, this is an error
+-0.240350877193
+***fri jul 25 04:07:06 +0000 2014
+nah nigga, this is an error
+0.155787037037
+***fri jul 25 04:06:29 +0000 2014
+nah nigga, this is an error
+-0.240350877193
+***fri jul 25 03:10:48 +0000 2014
+nah nigga, this is an error
+0.0690528404344
+***fri jul 25 03:06:24 +0000 2014
+nah nigga, this is an error
+0.0690528404344
+***fri jul 25 02:32:29 +0000 2014
+Oakley, ID 83346, USA
+0.279419191919
+***fri jul 25 02:00:28 +0000 2014
+nah nigga, this is an error
+0.461090713838
+***fri jul 25 01:10:44 +0000 2014
+nah nigga, this is an error
+0.117424242424
+***fri jul 25 01:10:01 +0000 2014
+Cincinnati, OH, USA
+0.117424242424
+***fri jul 25 00:48:53 +0000 2014
+Carrying Place, ON K0K, Canada
+0.025
+***thu jul 24 22:30:43 +0000 2014
+Sackville, NB, Canada
+0.0
+***thu jul 24 22:07:08 +0000 2014
+nah nigga, this is an error
+0.233333333333
+***thu jul 24 21:40:03 +0000 2014
+nah nigga, this is an error
+-0.1
+***thu jul 24 21:20:07 +0000 2014
+nah nigga, this is an error
+0.0225961538462
+***thu jul 24 20:42:02 +0000 2014
+Kangirsuk, QC, Canada
+0.1875
+***thu jul 24 19:26:00 +0000 2014
+Pleasant Hill, LA 71065, USA
+0.238182419432
+***thu jul 24 19:17:17 +0000 2014
+New York, NY, USA
+-0.0272328548644
+***thu jul 24 19:03:07 +0000 2014
+New York, NY, USA
+-0.0272328548644
+***thu jul 24 18:01:21 +0000 2014
+Sinai, SD, USA
+0.75
+***thu jul 24 18:00:45 +0000 2014
+Atlanta, GA, USA
+-0.209100877193
+***thu jul 24 17:43:30 +0000 2014
+New York, NY, USA
+0.0223214285714
+***thu jul 24 16:31:19 +0000 2014
+nah nigga, this is an error
+0.191071428571
+***thu jul 24 16:07:07 +0000 2014
+nah nigga, this is an error
+0.108333333333
+***thu jul 24 16:02:45 +0000 2014
+nah nigga, this is an error
+-0.556430905696
+***thu jul 24 15:46:55 +0000 2014
+Hinkley, CA 92347, USA
+0.0
+***thu jul 24 15:28:25 +0000 2014
+Erin, TN 37061, USA
+0.0625
+***thu jul 24 15:01:10 +0000 2014
+Scott AFB, IL, USA
+0.09375
+***thu jul 24 15:00:17 +0000 2014
+nah nigga, this is an error
+0.242812049062
+***thu jul 24 14:11:26 +0000 2014
+nah nigga, this is an error
+0.576121794872
+***thu jul 24 13:25:43 +0000 2014
+L'Ascension, QC J0T, Canada
+0.0793650793651
+***thu jul 24 13:21:01 +0000 2014
+Washington, DC, USA
+0.02108590906
+***thu jul 24 12:54:00 +0000 2014
+New York, NY, USA
+0.025
+***thu jul 24 12:10:15 +0000 2014
+Newcastle upon Tyne, Tyne and Wear, UK
+-0.0464285714286
+***thu jul 24 12:07:06 +0000 2014
+United States
+-0.114583333333
+***thu jul 24 12:06:00 +0000 2014
+Calverton, NY, USA
+0.226206563707
+***thu jul 24 12:05:34 +0000 2014
+nah nigga, this is an error
+0.055235042735
+***sat jul 26 23:55:12 +0000 2014
+nah nigga, this is an error
+0.278205128205
+***sat jul 26 18:13:29 +0000 2014
+nah nigga, this is an error
+0.15
+***sat jul 26 17:59:25 +0000 2014
+St. Louis, MO, USA
+0.15
+***sat jul 26 14:18:31 +0000 2014
+nah nigga, this is an error
+-0.0288461538462
+***sat jul 26 14:12:47 +0000 2014
+St. Louis, MO, USA
+-0.0288461538462
+***sat jul 26 09:20:43 +0000 2014
+nah nigga, this is an error
+0.0277777777778
+***sat jul 26 09:19:15 +0000 2014
+nah nigga, this is an error
+0.0277777777778
+***sat jul 26 09:07:07 +0000 2014
+nah nigga, this is an error
+0.0114489489489
+***sat jul 26 08:50:07 +0000 2014
+Kuwait
+0.453571428571
+***sat jul 26 04:26:00 +0000 2014
+nah nigga, this is an error
+-0.114583333333
+***sat jul 26 04:21:33 +0000 2014
+nah nigga, this is an error
+-0.114583333333
+***sat jul 26 00:55:45 +0000 2014
+nah nigga, this is an error
+0.0494505494505
+***sat jul 26 00:53:12 +0000 2014
+nah nigga, this is an error
+0.0494505494505
+***fri jul 25 23:30:44 +0000 2014
+Stock Market Road, Nicholls, GA 31554, USA
+0.025
+***fri jul 25 19:37:54 +0000 2014
+nah nigga, this is an error
+0.352976190476
+***fri jul 25 18:12:22 +0000 2014
+nah nigga, this is an error
+-0.957621635611
+***fri jul 25 18:09:53 +0000 2014
+nah nigga, this is an error
+-0.43203712406
+***fri jul 25 18:07:08 +0000 2014
+nah nigga, this is an error
+0.155787037037
+***fri jul 25 18:05:47 +0000 2014
+nah nigga, this is an error
+0.0114489489489
+***fri jul 25 18:04:26 +0000 2014
+nah nigga, this is an error
+0.0114489489489
+***fri jul 25 17:46:40 +0000 2014
+nah nigga, this is an error
+0.0
+***fri jul 25 17:44:46 +0000 2014
+Warbranch, KY 40874, USA
+0.0625
+***fri jul 25 17:24:28 +0000 2014
+Ashville, PA 16613, USA
+0.0694444444444
+***fri jul 25 17:23:01 +0000 2014
+Ramsey, NJ, USA
+0.025
+***fri jul 25 17:00:04 +0000 2014
+nah nigga, this is an error
+0.0178571428571
+***fri jul 25 16:29:06 +0000 2014
+Kenmore, NY, USA
+0.025
+***fri jul 25 15:59:49 +0000 2014
+nah nigga, this is an error
+-0.303810160428
+***fri jul 25 15:47:42 +0000 2014
+nah nigga, this is an error
+-0.104761904762
+***fri jul 25 15:32:31 +0000 2014
+New York, NY, USA
+0
+***fri jul 25 15:27:50 +0000 2014
+Lincoln Acres, CA 91950, USA
+0.225484006734
+***fri jul 25 15:23:41 +0000 2014
+Midkiff, WV 25506, USA
+0.1875
+***fri jul 25 15:07:08 +0000 2014
+nah nigga, this is an error
+0.375
+***fri jul 25 14:51:35 +0000 2014
+E C Manning Provincial Park, 7500 Crownsnest Hwy, Manning Park, BC V0X 1R0, Canada
+0.0
+***fri jul 25 14:51:14 +0000 2014
+E C Manning Provincial Park, 7500 Crownsnest Hwy, Manning Park, BC V0X 1R0, Canada
+0.181944444444
+***fri jul 25 14:46:48 +0000 2014
+Woods County, OK, USA
+-0.015625
+***fri jul 25 14:44:38 +0000 2014
+Savant Lake, ON P0T, Canada
+-0.0916795665635
+***fri jul 25 14:34:32 +0000 2014
+nah nigga, this is an error
+-0.0749007936508
+***fri jul 25 14:30:29 +0000 2014
+Lopeno, TX 78564, USA
+-0.0252403846154
+***fri jul 25 14:13:00 +0000 2014
+nah nigga, this is an error
+0.25994531784
+***fri jul 25 14:12:07 +0000 2014
+nah nigga, this is an error
+0.561901061901
+***fri jul 25 14:03:36 +0000 2014
+New York, NY, USA
+-0.240350877193
+***fri jul 25 13:51:57 +0000 2014
+Acton, ME, USA
+0.0576923076923
+***fri jul 25 13:48:01 +0000 2014
+Migisi Sahgaigan, ON P0V, Canada
+0.00454545454545
+***fri jul 25 13:26:33 +0000 2014
+Monterrey, Nuevo Leon, Mexico
+-0.0332341269841
+***fri jul 25 13:14:14 +0000 2014
+nah nigga, this is an error
+-0.0332341269841
+***fri jul 25 13:12:05 +0000 2014
+Venezuela
+-0.0332341269841
+***fri jul 25 13:07:26 +0000 2014
+nah nigga, this is an error
+-0.0332341269841
+***fri jul 25 13:06:13 +0000 2014
+New York, NY, USA
+-0.0332341269841
+***fri jul 25 13:05:03 +0000 2014
+Millville, NJ, USA
+-0.0332341269841
+***fri jul 25 13:01:19 +0000 2014
+Global, Midland, TX 79706, USA
+-0.0332341269841
+***fri jul 25 13:00:23 +0000 2014
+New York, NY, USA
+-0.0749007936508
+***fri jul 25 12:48:55 +0000 2014
+Sebec, ME, USA
+0.494101731602
+***fri jul 25 12:48:41 +0000 2014
+Liverpool, Merseyside, UK
+0.275
+***fri jul 25 12:35:31 +0000 2014
+Tampa, FL, USA
+0.527803884712
+***fri jul 25 12:08:32 +0000 2014
+London, UK
+-0.1625
+***fri jul 25 12:07:05 +0000 2014
+nah nigga, this is an error
+0.117424242424
+***fri jul 25 11:51:24 +0000 2014
+Grantsburg, IL 62943, USA
+-0.138888888889
+***fri jul 25 11:49:44 +0000 2014
+Goldfield, IA, USA
+-0.0541795665635
+***fri jul 25 11:44:19 +0000 2014
+Carterville, MO, USA
+-0.0230769230769
+***fri jul 25 11:31:54 +0000 2014
+Camden, DE, USA
+0.525
+***fri jul 25 10:28:10 +0000 2014
+nah nigga, this is an error
+-0.0345238095238
+***fri jul 25 09:52:42 +0000 2014
+Maidstone, Tecumseh, ON N0R, Canada
+0.025
+***fri jul 25 09:22:30 +0000 2014
+Millville, MA, USA
+0.025
+***fri jul 25 04:30:01 +0000 2014
+nah nigga, this is an error
+-0.1
+***fri jul 25 04:10:47 +0000 2014
+nah nigga, this is an error
+-0.240350877193
+***fri jul 25 04:07:06 +0000 2014
+nah nigga, this is an error
+0.155787037037
+***fri jul 25 04:06:29 +0000 2014
+nah nigga, this is an error
+-0.240350877193
+***fri jul 25 03:10:48 +0000 2014
+nah nigga, this is an error
+0.
