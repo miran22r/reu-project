@@ -1,7 +1,9 @@
-import os
-import sys
 from lexicon import *
+from plot import *
 
-wordList = lexicon()
-wordList.load_files("example.txt")
-wordList.find_sentiment()
+#wordList = lexicon()
+#wordList.find_sentiment()
+plotter = plot()
+plotter.graph_sentiment()
+plotter.graph_stock()
+plotter.graph()
