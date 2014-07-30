@@ -1,18 +1,18 @@
 import matplotlib as mpl
-import matplotlib.pyplot as plt
-import numpy as np
-from datetime import datetime
 import matplotlib.dates as mdates
 import matplotlib.axis as axs
+import matplotlib.pyplot as plt
+from datetime import datetime
 from geo import *
+import itertools
 
 class plot:
 	
 	def __init__(self):
 		self.locate = geo()
-		self.locations = {}
-		self.scores1 = []
-		self.time1 = []
+		self.cities = {}
+		self.scores1 = ""
+		self.time1 = ""
 		self.scores2 = []
 		self.time2 = []
 		self.file1 = open('burgerking.txt', mode = 'r')
@@ -21,18 +21,25 @@ class plot:
 	def graph_sentiment(self):
 		for line in self.file1:
 			if "***" in line:
-				line2 = next(self.file1)
-				self.locate.coordinates(line2)
-			#	self.locations.append(line2)
-				line2 = next(self.file1)	
-				line = line.translate(None, "*")
-				line = line.split()
-				del(line[4])
-				if "25" in line[2]:
-					hours = line[3].split(':')
-					if int(hours[0]) <= 12 and int(hours[0]) >= 8:
-						self.time1.append(datetime.strptime(line[3], "%H:%M:%S"))
-						self.scores1.append(line2)
+				location = next(self.file1)
+				if "None" not in self.locate.coordinates(location):
+		#		if x:
+					score = next(self.file1)	
+					line = line.translate(None, "*")
+					line = line.split()
+					del(line[4])
+					if "25" in line[2]:
+						hours = line[3].split(':')
+						if int(hours[0]) <= 17 and int(hours[0]) >= 8:
+							self.time1 = datetime.strptime(line[3], "%H:%M:%S")
+							self.scores1 = score
+							if location  in self.cities:
+								self.cities[location][0].append(self.scores1)
+								self.cities[location][1].append(self.time1)
+							else:
+								self.cities[location] = [[],[]]
+								self.cities[location][0].append(self.scores1)
+								self.cities[location][1].append(self.time1)
 	
 	def graph_stock(self):
 		for line in self.file2:
@@ -42,7 +49,9 @@ class plot:
 
 	def graph(self):
 		fig, axes = plt.subplots(nrows=2)
-		axes[0].plot(self.time1, self.scores1, 'b-')
+		colors = ['ro', 'bo', 'go', 'co', 'mo', 'ko', 'yo']
+		for key, x in zip(self.cities, itertools.cycle(colors)):
+			axes[0].plot(self.cities[key][1], self.cities[key][0], x) 
 		axes[1].plot(self.time2, self.scores2, 'r-')
 		dateFmt = mpl.dates.DateFormatter('%H:%M')
 		axs = plt.gca()
