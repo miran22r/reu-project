@@ -76,17 +76,16 @@ class geo:
 				if(self.states.has_key(state)):
 					city = loc.pop()
 					if len(city) > 1:
-						print city, state
 						return city, state
 				else:
-					print "state not found"
+					city = "None"
+					state = "None"
+					return city, state
 			else:
 				city = "None"
 				state = "None"
-				print city, state
 				return city, state
-		except:
+		except Exception, e:
 			city = "None"
 			state = "None"
-			print city, state
 			return city, state
