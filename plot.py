@@ -9,7 +9,6 @@ import itertools
 class plot:
 	
 	def __init__(self):
-		self.locate = geo()
 		self.cities = {}
 		self.scores1 = ""
 		self.time1 = ""
@@ -18,29 +17,44 @@ class plot:
 		self.file1 = open('burgerking.txt', mode = 'r')
 		self.file2 = open('stock.txt', mode = 'r')
 	
+	def graph_sentiment(self, scores, locations, times):
+		for x in times:
+			x = x.translate(None, "*")
+			x = x.split()
+			del(x[4])
+			hours = x[3].split(':')
+			if (int(hours[0]) <= 16 and int(hours[1]) <=30) and (int(hours[0]) >= 9 and int(hours[1]) <30):	
+				self.time1 = datetime.strptime(x[3], "%H:%M:%S")
+				self.scores1 = score
+				if location  in self.cities:
+					self.cities[location][0].append(self.scores1)
+					self.cities[location][1].append(self.time1)
+				else:
+					self.cities[location] = [[],[]]
+					self.cities[location][0].append(self.scores1)
+					self.cities[location][1].append(self.time1)
+
 	def graph_sentiment(self):
 		for line in self.file1:
 			if "***" in line:
 				location = next(self.file1)
-				if "None" not in self.locate.coordinates(location):
-		#		if x:
-					score = next(self.file1)	
-					line = line.translate(None, "*")
-					line = line.split()
-					del(line[4])
-					if "25" in line[2]:
-						hours = line[3].split(':')
-						if int(hours[0]) <= 17 and int(hours[0]) >= 8:
-							self.time1 = datetime.strptime(line[3], "%H:%M:%S")
-							self.scores1 = score
-							if location  in self.cities:
-								self.cities[location][0].append(self.scores1)
-								self.cities[location][1].append(self.time1)
-							else:
-								self.cities[location] = [[],[]]
-								self.cities[location][0].append(self.scores1)
-								self.cities[location][1].append(self.time1)
-	
+				score = next(self.file1)	
+				line = line.translate(None, "*")
+				line = line.split()
+				del(line[4])
+				if "25" in line[2]:
+					hours = line[3].split(':')
+					if int(hours[0]) <= 17 and int(hours[0]) >= 8:
+						self.time1 = datetime.strptime(line[3], "%H:%M:%S")
+						self.scores1 = score
+						if location  in self.cities:
+							self.cities[location][0].append(self.scores1)
+							self.cities[location][1].append(self.time1)
+						else:
+							self.cities[location] = [[],[]]
+							self.cities[location][0].append(self.scores1)
+							self.cities[location][1].append(self.time1)
+
 	def graph_stock(self):
 		for line in self.file2:
 			line = line.split()
