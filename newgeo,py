@@ -1,0 +1,133 @@
+import csv
+from spelling import*
+
+class check:
+
+    def __init__(self):
+    	self.list = self.load_file()
+    	self.word = ""
+	self.states = {
+        'AK': 'Alaska',
+        'AL': 'Alabama',
+        'AR': 'Arkansas',
+        'AS': 'American Samoa',
+        'AZ': 'Arizona',
+        'CA': 'California',
+        'CO': 'Colorado',
+        'CT': 'Connecticut',
+        'DC': 'District of Columbia',
+        'DE': 'Delaware',
+        'FL': 'Florida',
+        'GA': 'Georgia',
+        'GU': 'Guam',
+        'HI': 'Hawaii',
+        'IA': 'Iowa',
+        'ID': 'Idaho',
+        'IL': 'Illinois',
+        'IN': 'Indiana',
+        'KS': 'Kansas',
+        'KY': 'Kentucky',
+        'LA': 'Louisiana',
+        'MA': 'Massachusetts',
+        'MD': 'Maryland',
+        'ME': 'Maine',
+        'MI': 'Michigan',
+        'MN': 'Minnesota',
+        'MO': 'Missouri',
+        'MP': 'Northern Mariana Islands',
+        'MS': 'Mississippi',
+        'MT': 'Montana',
+        'NA': 'National',
+        'NC': 'North Carolina',
+        'ND': 'North Dakota',
+        'NE': 'Nebraska',
+        'NH': 'New Hampshire',
+        'NJ': 'New Jersey',
+        'NM': 'New Mexico',
+        'NV': 'Nevada',
+        'NY': 'New York',
+        'OH': 'Ohio',
+        'OK': 'Oklahoma',
+        'OR': 'Oregon',
+        'PA': 'Pennsylvania',
+        'PR': 'Puerto Rico',
+        'RI': 'Rhode Island',
+        'SC': 'South Carolina',
+        'SD': 'South Dakota',
+        'TN': 'Tennessee',
+        'TX': 'Texas',
+        'UT': 'Utah',
+        'VA': 'Virginia',
+        'VI': 'Virgin Islands',
+        'VT': 'Vermont',
+        'WA': 'Washington',
+        'WI': 'Wisconsin',
+        'WV': 'West Virginia',
+        'WY': 'Wyoming'
+	}
+
+
+    #returns state if city if found
+    def return_state(self, city):
+	city.split(" ")
+	if city.lower() in self.list:
+	   print self.list[city]
+	   return self.list[city]
+	else:
+	   return "None"
+	#attempts to find the city's state or given a state, the state
+    def find(self, city):
+	state = self.return_state(city)
+	if state == "None":
+	   corrected = correct(city)
+	   if self.return_state(corrected.lower()) != "None":
+	      return state
+	   else:
+	      if corrected in self.states:
+		return self.states[corrected]
+	      else:
+		for key in self.states:
+	            for item in key:
+			if item.lower() == corrected.lower():
+			   return key
+	else:
+	   return state
+
+	
+		 
+    def load_file(self):
+    	d = {}
+	with open('cities.csv') as f:
+	   for line in f:
+	      lin = line.split(",")
+	      city = lin[0].lower()
+	      state = lin[len(lin)-3].lower()
+	      if city in d:
+		d[city].append(state)
+	      if city not in d:
+	        d[city] = []
+	        d[city].append(state)
+#	      for key in d:
+#		print key
+#		print d[key]
+#		print "====="
+		
+	return d
+	
+
+#    	reader = csv.DictReader(f, delimiter=",")
+#    	for line in reader:
+#       l = line["Canonical Name"].split(",")
+#    	return reader
+
+def main(): 
+    c = check()
+    print "print"
+    print correct("speling")
+
+    read = raw_input(" city ")
+    c.find(read)
+
+
+if __name__=="__main__":
+  main()
