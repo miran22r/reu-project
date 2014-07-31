@@ -69,13 +69,16 @@ class check:
 
     #returns state if city if found
     def return_state(self, city):
-	city.split(" ")
-	if city.lower() in self.list:
-	   print self.list[city]
-	   return self.list[city]
-	else:
-	   return "None"
-	#attempts to find the city's state or given a state, the state
+        arr = city.split(" ")
+	for word in arr:
+            cit = arr[0].lower()
+	    if cit in self.list:
+	       print self.list[cit]
+	       return self.list[cit]
+        return "None"
+
+           
+    #attempts to find the city's state or given a state, the state
     def find(self, city):
 	state = self.return_state(city)
 	if state == "None":
